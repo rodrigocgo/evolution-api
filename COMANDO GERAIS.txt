@@ -1,0 +1,37 @@
+#CUIDADO -> eu troquei a imagem que o docker está subindo para a minha local:
+image: evolution/api:local (descomentar a linha de baixo) 
+
+adicinonei a linha build: . , para ele buildar conforme está no arquivo Dockerfile da raiz.
+
+docker build -t evolution/api:local . // builda só a api
+docker compose ps //lista os dockers com as imagens correta
+
+
+# 📦 COMANDOS BÁSICOS - ACESSO AO POSTGRES DO DOCKER (evolution_db)
+
+# 1. Listar containers ativos
+docker ps
+
+# 2. Acessar o container do PostgreSQL
+docker exec -it postgres bash
+
+# 3. Entrar no cliente PostgreSQL (usuário: user, banco: evolution_db)
+psql -U user -d evolution_db
+
+# 4. Listar bancos de dados disponíveis
+\l
+
+# 5. Listar tabelas no banco atual
+\dt
+
+# 6. Ver estrutura de uma tabela específica
+\d nome_da_tabela
+
+# 7. Ver todos os registros de uma tabela
+SELECT * FROM nome_da_tabela;
+
+# 8. Sair do PostgreSQL
+\q
+
+# 9. Sair do terminal do container
+exit
