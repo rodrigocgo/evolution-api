@@ -78,7 +78,7 @@ export class WebhookController extends EventController implements EventControlle
 
     if (webhookHeaders && 'jwt_key' in webhookHeaders) {
       const jwtKey = webhookHeaders['jwt_key'];
-      webhookHeaders['Authorization'] = `Bearer ${jwtToken}`;
+      webhookHeaders['Authorization'] = `Bearer ${jwtKey}`;
       delete webhookHeaders['jwt_key'];
     }
 
