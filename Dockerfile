@@ -12,8 +12,10 @@ WORKDIR /evolution
 COPY ./package*.json ./
 COPY ./tsconfig.json ./
 COPY ./tsup.config.ts ./
+COPY package*.json ./
 
-RUN npm ci --silent
+RUN npm ci --legacy-peer-deps
+
 
 COPY ./src ./src
 COPY ./public ./public
